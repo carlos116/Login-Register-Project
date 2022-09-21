@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- main css --> 
+    <link rel="stylesheet" href="../main.css" />
+    <title>Login Register App</title>
+  </head>
+  <body> 
+    <div class="profile-section">
+      <h2 class="welcome-text"></h2>
+      <button class="btn signout-btn">Sign out</button>
+    </div>
+    <div class="card">
+      <img src="./background-img.jpg" alt="background-img" class="card-top-img">
+    <form class="form">
+      <h4 class="form-title">Login User</h4>
+      <div class="form-control">
+        <input
+          type="text"
+          name="name"
+          class="name-input"
+          placeholder="enter name"
+        />
+        <input
+          type="email"
+          name="email"
+          class="email-input"
+          placeholder="enter email"
+        />
+        <input
+          type="password"
+          name="password"
+          class="password-input"
+          placeholder="enter password"
+        />
+        <button type="submit" class="submit-btn btn">submit</button>
+        <p class="bottom-text login-text">already have an account?<span class="login-link link"> log in</span></p>
+        <p class="bottom-text register-text">don't have an account?<span class="register-link link"> sign up</span></p>
+      </div>
+      <div class="form-alert"></div>
+    </form>
+    <p class="alert"></p>
+    </div>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="./browser-app.js"></script>
+  </body>
+</html>
