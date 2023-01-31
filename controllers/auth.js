@@ -8,7 +8,7 @@ const register = async (req, res, next) => {
     return next(createCustomError('Please complete all fields', StatusCodes.BAD_REQUEST))
   }
   const user = await User.create({ ...req.body })
-  res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token })
+  res.status(StatusCodes.CREATED).json({ user: { name: user.name }})
 } 
 
 const login = async (req, res, next) => {
@@ -27,7 +27,7 @@ const login = async (req, res, next) => {
     return next(createCustomError('Invalid password', StatusCodes.UNAUTHORIZED))
   }
   
-  res.status(StatusCodes.OK).json({ user: { name: user.name }, token })
+  res.status(StatusCodes.OK).json({ user: { name: user.name }})
 }
 
 module.exports = {
