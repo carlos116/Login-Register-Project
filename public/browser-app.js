@@ -81,12 +81,12 @@ form.addEventListener('submit', async (e) => {
         }
     } else {
         try {
-            await axios.post('/register', {name, email, password})
+            const { data } = await axios.post('/register', {name, email, password})
             clearInputs()
             setLoginPage()
             alert.style.color = 'rgb(0, 82, 0)'
             alert.style.backgroundColor = 'rgb(147, 190, 147)'
-            showAlert('User created, please login')
+            showAlert(`User ${data.user.name} created, please login`)
         } catch (error) {
             const errorMessage = error.response.data.msg
             alert.style.color = 'rgb(136, 0, 0)'
