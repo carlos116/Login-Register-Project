@@ -8,7 +8,6 @@ const register = async (req, res, next) => {
     return next(createCustomError('Please complete all fields', StatusCodes.BAD_REQUEST))
   }
   const user = await User.create({ ...req.body })
-  const token = user.createJWT()
   res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token })
 } 
 
@@ -22,12 +21,12 @@ const login = async (req, res, next) => {
   if (!user) {
     return next(createCustomError('No user found with email provided', StatusCodes.UNAUTHORIZED))
   }
+  // compare password
   const isPasswordCorrect = await user.comparePassword(password)
   if (!isPasswordCorrect) {
     return next(createCustomError('Invalid password', StatusCodes.UNAUTHORIZED))
   }
-  // compare password
-  const token = user.createJWT()
+  
   res.status(StatusCodes.OK).json({ user: { name: user.name }, token })
 }
 
